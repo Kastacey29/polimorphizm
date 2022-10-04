@@ -19,21 +19,7 @@ public class Driver<A extends Car> {
     }
 
 
-    public Car setCar(String carRights) {
-        Car car = null;
-        if (carRights.equals("B")) {
-            car = new Automobile("Hyundai", "Avante", 1.6);
-        }
-        if (carRights.equals("C")) {
-            car = new Truck("Mercedes-Benz", "1217", 6.0);
 
-        }
-        if (carRights.equals("D")) {
-            car = new Bus("Витязь", "Р-12", 2.5);
-
-        }
-        return car;
-    }
 
     public String getCarRights() {
         return carRights;
@@ -56,23 +42,23 @@ public class Driver<A extends Car> {
         this.experience = experience;
     }
 
-    public void start(Driver driver) {
-        System.out.println("Водитель начинает движение на " + driver.setCar(driver.carRights));
-        driver.setCar(driver.getCarRights()).start();
+    public void start(A car) {
+        System.out.println("Водитель начинает движение на " + car.getBrand());
+        car.start();
     }
 
-    public void finish(Driver driver) {
-        System.out.println("Водитель финиширует на " + driver.setCar(driver.carRights));
-        driver.setCar(driver.carRights).finish();
+    public void finish(A car) {
+        System.out.println("Водитель финиширует на " + car.getBrand());
+       car.finish();
     }
 
-    public void refillCar(Driver driver) {
-        driver.setCar(driver.carRights).doPitStop();
-        System.out.println("Водитель заправляет " + driver.setCar(driver.carRights).getBrand());
+    public void refillCar(A car) {
+        car.doPitStop();
+        System.out.println("Водитель заправляет " + car.getBrand());
     }
 
-    public void declare(Driver driver) {
-        System.out.println("Водитель " + driver.getFullName() + " управляет автомобилем " + driver.setCar(driver.carRights) + " и" +
+    public void declare(A car) {
+        System.out.println("Водитель " + this.fullName + " управляет автомобилем " + car.getBrand() + " и" +
                 " будет участвовать в заезде");
     }
 

@@ -34,18 +34,15 @@ public class Main {
         Driver<Truck> vlad = new Driver<>("Смирнов Владимир Михайлович", "C", 8.5);
         Driver<Bus> olga = new Driver<>("Сидорова Ольга Петровна", "D", 7.25);
         System.out.println(oleg);
-        oleg.setCar(oleg.getCarRights());
-        oleg.declare(oleg);
+        oleg.declare(bmw);
         System.out.println(olga);
-        olga.setCar(olga.getCarRights());
-        olga.declare(olga);
+        olga.declare(vaz);
         System.out.println(vlad);
-        vlad.setCar(vlad.getCarRights());
-        vlad.declare(vlad);
+        vlad.declare(mercedes);
 
-        oleg.start(oleg);
-        oleg.finish(oleg);
-        oleg.refillCar(oleg);
+        oleg.start(bmw);
+        oleg.finish(bmw);
+        oleg.refillCar(bmw);
 
 
     }
