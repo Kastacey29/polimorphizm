@@ -44,7 +44,10 @@ public class Main {
         oleg.finish(bmw);
         oleg.refillCar(bmw);
 
-
+        bmw.printType();
+        System.out.println(bmw.typeOfBody.name());
+        volvo1.printType();
+        sokol.printType();
     }
 
 

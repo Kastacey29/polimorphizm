@@ -49,6 +49,8 @@ public abstract class Car implements Competing {
         }
     }
 
+    public abstract void printType();
+
     @Override
     public String toString() {
         return "Car{" +

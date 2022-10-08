@@ -17,6 +17,15 @@ public class Automobile extends Car implements Competing {
     }
 
     @Override
+    public void printType() {
+        if (typeOfBody == null) {
+            System.out.println("Данных недостаточно!");
+        } else {
+            System.out.println("Тип кузова: " + typeOfBody);
+        }
+    }
+
+    @Override
     public String toString() {
         return "Automobile{" +
                 "brand='" + super.getBrand() + '\'' +

@@ -17,6 +17,15 @@ public class Bus extends Car implements Competing {
     }
 
     @Override
+    public void printType() {
+        if (capacity == null) {
+            System.out.println("Данных недостаточно!");
+        } else {
+            System.out.println("Вместимость: " + capacity);
+        }
+    }
+
+    @Override
     public String toString() {
         return "Bus{" +
                 "brand='" + super.getBrand() + '\'' +

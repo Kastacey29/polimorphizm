@@ -17,6 +17,15 @@ public class Truck extends Car implements Competing {
     }
 
     @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных недостаточно!");
+        } else {
+            System.out.println("Грузоподъемность: " + loadCapacity);
+        }
+    }
+
+    @Override
     public String toString() {
         return "Truck{" +
                 "brand='" + super.getBrand() + '\'' +
