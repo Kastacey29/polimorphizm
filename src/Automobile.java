@@ -1,6 +1,9 @@
 public class Automobile extends Car implements Competing {
-    public Automobile(String brand, String model, double engineVolume) {
+    TypeOfBody typeOfBody;
+
+    public Automobile(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -19,6 +22,7 @@ public class Automobile extends Car implements Competing {
                 "brand='" + super.getBrand() + '\'' +
                 ", model='" + super.getModel() + '\'' +
                 ", engineVolume=" + super.getEngineVolume() +
+                ", tupeOfBody=" + this.typeOfBody +
                 '}';
     }
 

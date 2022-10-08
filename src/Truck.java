@@ -1,6 +1,9 @@
 public class Truck extends Car implements Competing {
-    public Truck(String brand, String model, double engineVolume) {
+    LoadCapacity loadCapacity;
+
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -19,6 +22,7 @@ public class Truck extends Car implements Competing {
                 "brand='" + super.getBrand() + '\'' +
                 ", model='" + super.getModel() + '\'' +
                 ", engineVolume=" + super.getEngineVolume() +
+                ", loadCapacity=" + this.loadCapacity +
                 '}';
     }
 

@@ -1,6 +1,9 @@
 public class Bus extends Car implements Competing {
-    public Bus(String brand, String model, double engineVolume) {
+    Capacity capacity;
+
+    public Bus(String brand, String model, double engineVolume, Capacity capacity) {
         super(brand, model, engineVolume);
+        this.capacity = capacity;
     }
 
     @Override
@@ -19,6 +22,7 @@ public class Bus extends Car implements Competing {
                 "brand='" + super.getBrand() + '\'' +
                 ", model='" + super.getModel() + '\'' +
                 ", engineVolume=" + super.getEngineVolume() +
+                ", capacity=" + this.capacity +
                 '}';
     }
 
