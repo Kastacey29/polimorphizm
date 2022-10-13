@@ -26,11 +26,10 @@ public class Driver<A extends Car> {
     }
 
     public void setCarRights(String carRights) {
-        if (carRights.equals("B") || carRights.equals("C") || carRights.equals("D")) {
+        if (carRights!=null&&(carRights.equals("B") || carRights.equals("C") || carRights.equals("D"))) {
             this.carRights = carRights;
         } else {
-
-            this.carRights = "не определено";
+            throw new IllegalArgumentException("Укажите верную категорию прав!");
         }
     }
 

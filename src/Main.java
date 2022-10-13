@@ -48,7 +48,29 @@ public class Main {
         System.out.println(bmw.typeOfBody.name());
         volvo1.printType();
         sokol.printType();
+        System.out.println();
+        checkCars(bmw,kia,hyundai,lada,
+        volvo1,volvo2,mercedes,isuzu,
+                sokol,vityaz,gaz,vaz);
+
+        System.out.println();
+
+
     }
 
+    public static void checkCars(Car... cars) {
+        for (int i = 0; i <cars.length ; i++) {
+            checkCar(cars[i]);
+        }
+    }
+    private static void checkCar(Car car) {
+        try {
+                if (!car.passDiagnostics()) {
+                    throw new RuntimeException("Автомобиль " + car.getBrand() + " не прошел диагностику!");
+                }
 
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+        }
 }

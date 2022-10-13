@@ -26,6 +26,11 @@ public class Truck extends Car implements Competing {
     }
 
     @Override
+    public boolean passDiagnostics() {
+        return Math.random()>0.5;
+    }
+
+    @Override
     public String toString() {
         return "Truck{" +
                 "brand='" + super.getBrand() + '\'' +

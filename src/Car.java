@@ -50,6 +50,7 @@ public abstract class Car implements Competing {
     }
 
     public abstract void printType();
+    public abstract boolean passDiagnostics();
 
     @Override
     public String toString() {
