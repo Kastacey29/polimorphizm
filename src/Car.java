@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+
 public abstract class Car implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
+    private final ArrayList<Driver> drivers = new ArrayList<>(1);
+    private final ArrayList<Sponsor> sponsors = new ArrayList<>();
+    private final ArrayList<Mechanic> mechanics = new ArrayList<>();
+
 
     public Car(String brand, String model, double engineVolume) {
         setBrand(brand);
@@ -49,7 +55,20 @@ public abstract class Car implements Competing {
         }
     }
 
+    public ArrayList<Driver> getDrivers() {
+        return drivers;
+    }
+
+    public ArrayList<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public ArrayList<Mechanic> getMechanics() {
+        return mechanics;
+    }
+
     public abstract void printType();
+
     public abstract boolean passDiagnostics();
 
     @Override
@@ -58,6 +77,9 @@ public abstract class Car implements Competing {
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", engineVolume=" + engineVolume +
+                ", drivers=" + drivers +
+                ", sponsors=" + sponsors +
+                ", mechanics=" + mechanics +
                 '}';
     }
 }

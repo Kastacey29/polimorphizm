@@ -19,14 +19,12 @@ public class Driver<A extends Car> {
     }
 
 
-
-
     public String getCarRights() {
         return carRights;
     }
 
     public void setCarRights(String carRights) {
-        if (carRights!=null&&(carRights.equals("B") || carRights.equals("C") || carRights.equals("D"))) {
+        if (carRights != null && (carRights.equals("B") || carRights.equals("C") || carRights.equals("D"))) {
             this.carRights = carRights;
         } else {
             throw new IllegalArgumentException("Укажите верную категорию прав!");
@@ -48,7 +46,7 @@ public class Driver<A extends Car> {
 
     public void finish(A car) {
         System.out.println("Водитель финиширует на " + car.getBrand());
-       car.finish();
+        car.finish();
     }
 
     public void refillCar(A car) {
