@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.Set;
 
 public class Mechanic<T extends Car> {
     private final String name;
     private final String surname;
     private String company;
-    public ArrayList<T> CarsForMaintenance;
+    public Set<T> CarsForMaintenance;
 
 
     public Mechanic(String name, String surname, String company) {
@@ -31,11 +32,11 @@ public class Mechanic<T extends Car> {
         this.company = company;
     }
 
-    public ArrayList<T> getCarsForMaintenance() {
+    public Set<T> getCarsForMaintenance() {
         return CarsForMaintenance;
     }
 
-    public void setCarsForMaintenance(ArrayList<T> carsForMaintenance) {
+    public void setCarsForMaintenance(Set<T> carsForMaintenance) {
         CarsForMaintenance = carsForMaintenance;
     }
 

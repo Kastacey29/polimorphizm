@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Sponsor {
     private final String name;
     private final boolean isCompany;
     private double sumSupport;
-    private List<Car> supportedCars = new ArrayList<>();
+    private Set<Car> supportedCars = new HashSet<>();
 
     public Sponsor(String name, boolean isCompany, double sumSupport) {
         if (name == null || name.isEmpty()) {
@@ -30,7 +32,7 @@ public class Sponsor {
         return isCompany;
     }
 
-    public List<Car> getSupportedCars() {
+    public Set<Car> getSupportedCars() {
         return supportedCars;
     }
 

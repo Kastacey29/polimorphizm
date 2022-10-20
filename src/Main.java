@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,8 +37,15 @@ public class Main {
         Driver<Automobile> oleg = new Driver<>("Иванов Олег Васильевич", "B", 5.5);
         Driver<Truck> vlad = new Driver<>("Смирнов Владимир Михайлович", "C", 8.5);
         Driver<Bus> olga = new Driver<>("Сидорова Ольга Петровна", "D", 7.25);
-        System.out.println(oleg);
+        Set<Driver> drivers=new HashSet<>();
+        drivers.add(oleg);
+        drivers.add(olga);
+        drivers.add(vlad);
+        System.out.println(drivers);
         Sponsor ivanov = new Sponsor("IvanIvanov", false, 150000.0);
+        Set<Sponsor>sponsors=new HashSet<>();
+        sponsors.add(ivanov);
+        System.out.println(sponsors);
         Mechanic<Truck> igor = new Mechanic("Igor", "Smirnov", "ServiceOfCars");
         Mechanic<Car> andrew = new Mechanic("Andrew", "Petrov", "FirstService");
 
@@ -69,7 +78,7 @@ public class Main {
         System.out.println();
 
         kia.getDrivers().add(oleg);
-        ArrayList<Car> cars = new ArrayList<>();
+        Set<Car> cars = new HashSet<>();
         cars.add(lada);
         cars.add(bmw);
         cars.add(hyundai);
@@ -88,19 +97,22 @@ public class Main {
         ivanov.getSupportedCars().add(mercedes);
 
 
-        igor.CarsForMaintenance = new ArrayList<>();
-        andrew.CarsForMaintenance = new ArrayList<>();
+        igor.CarsForMaintenance = new HashSet<>();
+        andrew.CarsForMaintenance = new HashSet<>();
         igor.getCarsForMaintenance().add(volvo1);
         volvo1.getMechanics().add(igor);
         andrew.getCarsForMaintenance().add(vityaz);
         vityaz.getMechanics().add(andrew);
         vityaz.getMechanics().add(igor);
-        andrew.fixCar(andrew.CarsForMaintenance.get(0));
 
-        ArrayList<Mechanic> mechanics = new ArrayList<>();
+
+        Set<Mechanic> mechanics = new HashSet<>();
         mechanics.add(igor);
         mechanics.add(andrew);
+        mechanics.add(andrew);
+        System.out.println(mechanics);
         printInfo(bmw);
+
     }
 
     public static void printInfo(Car car) {
