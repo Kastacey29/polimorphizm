@@ -37,13 +37,13 @@ public class Main {
         Driver<Automobile> oleg = new Driver<>("Иванов Олег Васильевич", "B", 5.5);
         Driver<Truck> vlad = new Driver<>("Смирнов Владимир Михайлович", "C", 8.5);
         Driver<Bus> olga = new Driver<>("Сидорова Ольга Петровна", "D", 7.25);
-        Set<Driver> drivers=new HashSet<>();
+        Set<Driver> drivers = new HashSet<>();
         drivers.add(oleg);
         drivers.add(olga);
         drivers.add(vlad);
         System.out.println(drivers);
         Sponsor ivanov = new Sponsor("IvanIvanov", false, 150000.0);
-        Set<Sponsor>sponsors=new HashSet<>();
+        Set<Sponsor> sponsors = new HashSet<>();
         sponsors.add(ivanov);
         System.out.println(sponsors);
         Mechanic<Truck> igor = new Mechanic("Igor", "Smirnov", "ServiceOfCars");

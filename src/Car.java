@@ -1,12 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public abstract class Car implements Competing {
     private String brand;
     private String model;
     private double engineVolume;
-    private final ArrayList<Driver> drivers = new ArrayList<>(1);
-    private final ArrayList<Sponsor> sponsors = new ArrayList<>();
-    private final ArrayList<Mechanic> mechanics = new ArrayList<>();
+    private final Set<Driver> drivers = new HashSet<>(1);
+    private final Set<Sponsor> sponsors = new HashSet<>();
+    private final Set<Mechanic> mechanics = new HashSet<>();
 
 
     public Car(String brand, String model, double engineVolume) {
@@ -55,16 +58,29 @@ public abstract class Car implements Competing {
         }
     }
 
-    public ArrayList<Driver> getDrivers() {
+    public Set<Driver> getDrivers() {
         return drivers;
     }
 
-    public ArrayList<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
 
-    public ArrayList<Mechanic> getMechanics() {
+    public Set<Mechanic> getMechanics() {
         return mechanics;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return Double.compare(car.engineVolume, engineVolume) == 0 && brand.equals(car.brand) && model.equals(car.model) && drivers.equals(car.drivers) && sponsors.equals(car.sponsors) && mechanics.equals(car.mechanics);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, drivers, sponsors, mechanics);
     }
 
     public abstract void printType();
