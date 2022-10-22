@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Driver<A extends Car> {
     private String fullName;
     private String carRights;
@@ -19,18 +21,15 @@ public class Driver<A extends Car> {
     }
 
 
-
-
     public String getCarRights() {
         return carRights;
     }
 
     public void setCarRights(String carRights) {
-        if (carRights.equals("B") || carRights.equals("C") || carRights.equals("D")) {
+        if (carRights != null && (carRights.equals("B") || carRights.equals("C") || carRights.equals("D"))) {
             this.carRights = carRights;
         } else {
-
-            this.carRights = "не определено";
+            throw new IllegalArgumentException("Укажите верную категорию прав!");
         }
     }
 
@@ -49,7 +48,7 @@ public class Driver<A extends Car> {
 
     public void finish(A car) {
         System.out.println("Водитель финиширует на " + car.getBrand());
-       car.finish();
+        car.finish();
     }
 
     public void refillCar(A car) {
@@ -60,6 +59,19 @@ public class Driver<A extends Car> {
     public void declare(A car) {
         System.out.println("Водитель " + this.fullName + " управляет автомобилем " + car.getBrand() + " и" +
                 " будет участвовать в заезде");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Driver)) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return Double.compare(driver.experience, experience) == 0 && fullName.equals(driver.fullName) && carRights.equals(driver.carRights);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fullName, carRights, experience);
     }
 
     @Override
