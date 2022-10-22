@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Set;
 
 public class Mechanic<T extends Car> {
@@ -46,6 +47,19 @@ public class Mechanic<T extends Car> {
 
     public void fixCar(T car) {
         System.out.println("Механик " + this.name + " починил машину " + car.getBrand());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Mechanic)) return false;
+        Mechanic<?> mechanic = (Mechanic<?>) o;
+        return name.equals(mechanic.name) && surname.equals(mechanic.surname) && company.equals(mechanic.company) && Objects.equals(CarsForMaintenance, mechanic.CarsForMaintenance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, company, CarsForMaintenance);
     }
 
     @Override

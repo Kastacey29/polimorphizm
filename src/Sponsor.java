@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Sponsor {
     private final String name;
@@ -42,6 +39,19 @@ public class Sponsor {
 
     public void setSumSupport(double sumSupport) {
         this.sumSupport = sumSupport;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Sponsor)) return false;
+        Sponsor sponsor = (Sponsor) o;
+        return isCompany == sponsor.isCompany && Double.compare(sponsor.sumSupport, sumSupport) == 0 && name.equals(sponsor.name) && supportedCars.equals(sponsor.supportedCars);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, isCompany, sumSupport, supportedCars);
     }
 
     @Override
